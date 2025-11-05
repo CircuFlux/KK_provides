@@ -202,7 +202,8 @@
                     <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105 video-card-on-scroll" style="transition-delay: 100ms;">
                         <div class="aspect-[9/16]">
                             <!-- REMOVED: onmouseenter/onmouseleave -->
-                            <video class="w-full h-full object-cover" muted loop playsinline></video>
+                            <!-- FIX: Added placeholder src and poster. The video had no source file. -->
+                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" muted loop playsinline poster="https://placehold.co/900x1600/1F2937/22D3EE?text=Variation+2"></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Variation Title Two</h3>
@@ -527,9 +528,10 @@
                     
                     // Create a new player
                     if (playerId) {
+                        // FIX: Store the player promise to ensure it's created,
+                        // but the main logic will be handled by the observer.
                         ytPlayers[playerId] = new YT.Player(playerId, {
                             events: {
-                                // Call 'onPlayerReady' when the video is loaded
                                 'onReady': onPlayerReady
                             }
                         });
@@ -610,6 +612,7 @@
                         // Handle YouTube <iframe>
                         if (ytIframe) {
                             const playerId = ytIframe.id;
+                            // FIX: Check if the player object exists in our map
                             const player = ytPlayers[playerId];
                             // Check if player is ready
                             if (player && typeof player.playVideo === 'function') {
@@ -628,6 +631,7 @@
                         // Handle YouTube <iframe>
                         if (ytIframe) {
                             const playerId = ytIframe.id;
+                            // FIX: Check if the player object exists in our map
                             const player = ytPlayers[playerId];
                             // Check if player is ready
                             if (player && typeof player.pauseVideo === 'function') {

@@ -126,7 +126,7 @@
             <!-- Desktop Nav -->
             <div class="hidden md:flex space-x-8">
                 <a href="#reels" class="text-gray-300 nav-link">Variations</a>
-                <a href="#insta-reels" class="text-gray-300 nav-link">Insta Reels</a>
+              <!--  <a href="#insta-reels" class="text-gray-300 nav-link">Insta Reels</a> -->
                 <a href="#videos" class="text-gray-300 nav-link">Videos</a>
                 <a href="#about" class="text-gray-300 nav-link">About</a>
                 <a href="#contact" class="text-gray-300 nav-link">Contact</a>
@@ -135,7 +135,7 @@
             <!-- Mobile Nav Links (Simplified) -->
             <div class="md:hidden">
                 <a href="#reels" class="text-gray-300 ml-4">Variations</a>
-                <a href="#insta-reels" class="text-gray-300 ml-4">Insta Reels</a>
+             <!--   <a href="#insta-reels" class="text-gray-300 ml-4">Insta Reels</a> -->
                 <a href="#videos" class="text-gray-300 ml-4">Videos</a>
                 <a href="#about" class="text-gray-300 ml-4">About</a>
             </div>
@@ -168,10 +168,10 @@
                     Video Editor & Motion Designer
                 </p>
                 <p class="text-lg md:text-xl text-gray-300 mt-6 max-w-xl mx-auto reveal-on-scroll" style="transition-delay: 400ms;">
-                    Crafting stories through frames and rhythm.
+                    Crafting stories through frames and timeline.
                 </p>
                 <a href="#reels" class="inline-block mt-10 px-8 py-3 text-lg font-semibold border-2 rounded-lg glow-accent glow-accent-pulse reveal-on-scroll" style="transition-delay: 600ms;">
-                    Watch My Some Works
+                    Have a Look at some of My Work
                 </a>
             </div>
         </section>
@@ -187,28 +187,47 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                     
                     <!-- Variation 1 -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105">
-                        <div class="aspect-[9/16]">
-                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/1F2937/22D3EE?text=Variation+1" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-xl font-bold mb-1 truncate">Variation Title One</h3>
-                            <p class="text-gray-400 text-sm">Short description.</p>
-                        </div>
-                    </div>
+                     <div class="bg-gray-800 rounded-lg ...">
+    <div class="aspect-[9/16]">
+        
+        <!-- Paste your YouTube embed code and add the class/URL params -->
+        <iframe 
+            class="w-full h-full" 
+            src="https://www.youtube.com/embed/i8NE5bzAens?autoplay=1&mute=1" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+
+    </div>
+    <div class="p-4">
+        <h3 class="text-xl font-bold mb-1 truncate">Viral Instagram Reel 1.</h3>
+        <p class="text-gray-400 text-sm">This is one of my recently edited reel for client.</p>
+    </div>
+</div>
+
 
                     <!-- Variation 2 -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 100ms;">
-                        <div class="aspect-[9/16]">
-                            <!-- FIX: Fixed missing </video> tag and updated to safe hover-to-play -->
-                            <video class="w-full h-full object-cover" muted loop playsinline onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-xl font-bold mb-1 truncate">Variation Title Two</h3>
-                            <p class="text-gray-400 text-sm">Short description.</p>
-                        </div>
-                    </div>
+                     <div class="bg-gray-800 rounded-lg ...">
+    <div class="aspect-[9/16]">
+        
+        <!-- Paste your YouTube embed code and add the class/URL params -->
+        <iframe 
+            class="w-full h-full" 
+            src="https://www.youtube.com/embed/vTiUzXANXx0?autoplay=1&mute=1" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+
+    </div>
+    <div class="p-4">
+        <h3 class="text-xl font-bold mb-1 truncate">Viral Instagram Reel 2.</h3>
+        <p class="text-gray-400 text-sm">This is one of my recently edited reel for client.</p>
+    </div>
+</div>
                     <!--Variasion 3-->
                     <div class="bg-gray-800 rounded-lg ...">
     <div class="aspect-[9/16]">
@@ -272,36 +291,25 @@
     </div>
 </div>
                     
-                    <!-- Variation 5 (Example) -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 400ms;">
-                        <div class="aspect-[9/16]">
-                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/1F2937/22D3EE?text=Variation+5" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-xl font-bold mb-1 truncate">Variation Title Five</h3>
-                            <p class="text-gray-400 text-sm">Short description.</p>
-                        </div>
-                    </div>
-
+                
                 </div>
             </div>
         </section>
 
-        <!-- Instagram Reels Section -->
+     <!--   -- Instagram Reels Section --
         <section id="insta-reels" class="py-20 md:py-32 bg-gray-800">
             <div class="container mx-auto max-w-6xl px-6">
                 <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 reveal-on-scroll">
                     Instagram <span class="text-cyan-400 text-glow">Reels</span>
                 </h2>
                 
-                <!-- Grid layout for Insta Reels -->
+                -- Grid layout for Insta Reels --
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
                     
-                    <!-- Insta Reel 1 -->
+                    -- Insta Reel 1 --
                     <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105">
                         <div class="aspect-[9/16]">
-                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
+                            -- FIX: Removed autoplay, added safe hover-to-play --
                             <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+1" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
@@ -309,42 +317,7 @@
                             <p class="text-gray-400 text-sm">Short description.</p>
                         </div>
                     </div>
-
-                    <!-- Insta Reel 2 -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 100ms;">
-                        <div class="aspect-[9/16]">
-                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+2" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-xl font-bold mb-1 truncate">Insta Reel Two</h3>
-                            <p class="text-gray-400 text-sm">Short description.</p>
-                        </div>
-                    </div>
-
-                    <!-- Insta Reel 3 -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 200ms;">
-                        <div class="aspect-[9/16]">
-                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+3" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-xl font-bold mb-1 truncate">Insta Reel Three</h3>
-                            <p class="text-gray-400 text-sm">Short description.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Insta Reel 4 -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 300ms;">
-                        <div class="aspect-[9/16]">
-                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+4" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-xl font-bold mb-1 truncate">Insta Reel Four</h3>
-                            <p class="text-gray-400 text-sm">Short description.</p>
-                        </div>
-                    </div>
+        
                     
                 </div>
             </div>
@@ -354,17 +327,17 @@
         <section id="videos" class="py-20 md:py-32 bg-gray-900">
             <div class="container mx-auto max-w-6xl px-6">
                 <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 reveal-on-scroll">
-                    Client <span class="text-cyan-400 text-glow">Videos</span>
+                    Long format <span class="text-cyan-400 text-glow">Videos</span>
                 </h2>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-10">
                     
                     <!-- Video 1 -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105">
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll" style="transition-delay: 200ms;">
                         <div class="aspect-video">
                             <iframe 
                                 class="w-full h-full" 
-                                src="https://www.youtube.com/embed/ScBY3nO8f-8?si=aRiy3f-xYJ-8s9lM&autoplay=1&mute=1" 
+                                src="https://www.youtube.com/embed/ccH7nXKYWFo?autoplay=1&mute=1" 
                                 title="YouTube video player" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -374,8 +347,8 @@
                         </div>
                         <div class="p-6">
                             <h3 class="text-2xl font-bold mb-2">AI Generated Connected Theme</h3>
-                            <p class="text-gray-400 mb-4">A compilation of my work in AI video generation suring connection between every Clip.</p>
-                            <a href="https://www.youtube.com/watch?v=ScBY3nO8f-8" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2 text-sm font-medium border border-cyan-400 text-cyan-400 rounded-lg transition-all hover:bg-cyan-400 hover:text-gray-900">
+                            <p class="text-gray-400 mb-4">A compilation of my work in AI video generation asuring connection between every Clip.</p>
+                            <a href="https://www.youtube.com/watch?v=ccH7nXKYWFo" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2 text-sm font-medium border border-cyan-400 text-cyan-400 rounded-lg transition-all hover:bg-cyan-400 hover:text-gray-900">
                                 Watch on YouTube
                             </a>
                         </div>
@@ -403,26 +376,7 @@
                         </div>
                     </div>
 
-                    <!-- Video 3 -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll" style="transition-delay: 400ms;">
-                        <div class="aspect-video">
-                            <iframe 
-                                class="w-full h-full" 
-                                src="https://www.youtube.com/embed/your-video-id?autoplay=1&mute=1" 
-                                title="YouTube video player" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                referrerpolicy="strict-origin-when-cross-origin" 
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold mb-2">Project Title Three</h3>
-                            <p class="text-gray-400 mb-4">A short description of the project, its goals, and my role.</p>
-                            <a href="https://www.youtube.com/watch?v=your-video-id" target="_blank" rel="noopener noreferrer" class="inline-block px-5 py-2 text-sm font-medium border border-cyan-400 text-cyan-400 rounded-lg transition-all hover:bg-cyan-400 hover:text-gray-900">
-                                Watch on YouTube
-                            </a>
-                        </div>
+                    
                     </div>
 
                 </div>
@@ -472,6 +426,12 @@
                             <li class="flex items-center text-lg">
                                 <span class="text-cyan-400 mr-3">&#10003;</span> Capcut
                             </li>
+                            <li class="flex items-center text-lg">
+                                <span class="text-cyan-400 mr-3">&#10003;</span> Canva
+                            </li>
+                            <li class="flex items-center text-lg">
+                                <span class="text-cyan-400 mr-3">&#10003;</span> Illustrator
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -489,54 +449,55 @@
                     <a href="mailto:kaushikkalita.work@gmail.com" class="text-cyan-400 hover:text-cyan-300 transition-all">kaushikkalita.work@gmail.com</a>.
                 </p>
 
-                <!-- Contact Form -->
-                <form data-netlify="true" name="contact" method="POST" class="text-left max-w-xl mx-auto">
-                    <input type="hidden" name="form-name" value="contact" />
+               <!-- Contact Form -->
+<form action="https://formspree.io/f/xqagrpyk" method="POST" class="text-left max-w-xl mx-auto">
                     
-                    <!-- Name Field -->
-                    <div class="mb-5">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-300">Your Name</label>
-                        <input type="text" id="name" name="name" class="block w-full p-3 text-gray-100 bg-gray-800 border border-gray-700 rounded-lg shadow-sm focus:ring-cyan-500 focus:border-cyan-500 transition-all" placeholder="John Doe" required>
-                    </div>
-                    
-                    <!-- Email Field -->
-                    <div class="mb-5">
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Your Email</label>
-                        <input type="email" id="email" name="email" class="block w-full p-3 text-gray-100 bg-gray-800 border border-gray-700 rounded-lg shadow-sm focus:ring-cyan-500 focus:border-cyan-500 transition-all" placeholder="you@example.com" required>
-                    </div>
-                    
-                    <!-- Message Field -->
-                    <div class="mb-8">
-                        <label for="message" class="block mb-2 text-sm font-medium text-gray-300">Your Message</label>
-                        <textarea id="message" name="message" rows="6" class="block w-full p-3 text-gray-100 bg-gray-800 border border-gray-700 rounded-lg shadow-sm focus:ring-cyan-500 focus:border-cyan-500 transition-all" placeholder="Tell me about your project..." required></textarea>
-                    </div>
-                    
-                    <!-- Submit Button -->
-                    <div class="text-center">
-                        <button type="submit" class="inline-block w-full md:w-auto px-10 py-3 text-lg font-semibold border-2 rounded-lg glow-accent">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
+    <!-- Name Field -->
+    <div class="mb-5">
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-300">Your Name</label>
+        <input type="text" id="name" name="name" class="block w-full p-3 text-gray-100 bg-gray-800 border border-gray-700 rounded-lg shadow-sm focus:ring-cyan-500 focus:border-cyan-500 transition-all" placeholder="John Doe" required>
+    </div>
+    
+    <!-- Email Field -->
+    <div class="mb-5">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Your Email</label>
+        <input type="email" id="email" name="_replyto" class="block w-full p-3 text-gray-100 bg-gray-800 border border-gray-700 rounded-lg shadow-sm focus:ring-cyan-500 focus:border-cyan-500 transition-all" placeholder="you@example.com" required>
+    </div>
+    
+    <!-- Message Field -->
+    <div class="mb-8">
+        <label for="message" class="block mb-2 text-sm font-medium text-gray-300">Your Message</label>
+        <textarea id="message" name="message" rows="6" class="block w-full p-3 text-gray-100 bg-gray-800 border border-gray-700 rounded-lg shadow-sm focus:ring-cyan-500 focus:border-cyan-500 transition-all" placeholder="Tell me about your project..." required></textarea>
+    </div>
+    
+    <!-- Submit Button -->
+    <div class="text-center">
+        <button type="submit" class="inline-block w-full md:w-auto px-10 py-3 text-lg font-semibold border-2 rounded-lg glow-accent">
+            Send Message
+        </button>
+    </div>
+</form>
 
-                <!-- Social Icons -->
+
+<!--
+                <!-- Social Icons --
                 <div class="flex justify-center space-x-8 mt-16">
-                    <!-- YouTube -->
+                    <!-- YouTube --
                     <a href="#" aria-label="YouTube" class="text-gray-400 transition-all hover:text-cyan-400 hover:scale-110">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
                     </a>
-                    <!-- Instagram -->
+                    <!-- Instagram --
                     <a href="#" aria-label="Instagram" class="text-gray-400 transition-all hover:text-cyan-400 hover:scale-110">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.227-1.667 4.77-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.227 1.667-4.77 4.919 4.919 1.266.058 1.646.07 4.85.07zm0-2.163c-3.273 0-3.663.014-4.945.072-4.305.197-7.22 3.118-7.417 7.417-.058 1.283-.072 1.672-.072 4.945s.014 3.663.072 4.945c.197 4.305 3.118 7.22 7.417 7.417 1.283.058 1.672.072 4.945.072s3.663-.014 4.945-.072c4.305-.197 7.22-3.118 7.417-7.417.058-1.283.072-1.672.072-4.945s-.014-3.663-.072-4.945c-.197-4.305-3.118-7.22-7.417-7.417-1.283-.058-1.672-.072-4.945-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.44-.645 1.44-1.44s-.645-1.44-1.44-1.44z"></path></svg>
                     </a>
-                    <!-- LinkedIn -->
+                    <!-- LinkedIn --
                     <a href="#" aria-label="LinkedIn" class="text-gray-400 transition-all hover:text-cyan-400 hover:scale-110">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg>
                     </a>
                 </div>
             </div>
         </section>
-
+-->
     </main>
 
     <!-- Footer -->

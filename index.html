@@ -189,7 +189,8 @@
                     <!-- Variation 1 -->
                     <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105">
                         <div class="aspect-[9/16]">
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" autoplay loop muted playsinline poster="https://placehold.co/900x1600/1F2937/22D3EE?text=Variation+1"></video>
+                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
+                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/1F2937/22D3EE?text=Variation+1" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Variation Title One</h3>
@@ -200,7 +201,8 @@
                     <!-- Variation 2 -->
                     <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 100ms;">
                         <div class="aspect-[9/16]">
-                            <video class="w-full h-full object-cover" muted loop playsinline onmouseenter="this.play()" onmouseleave="this.pause(); this.currentTime=0;">
+                            <!-- FIX: Fixed missing </video> tag and updated to safe hover-to-play -->
+                            <video class="w-full h-full object-cover" muted loop playsinline onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Variation Title Two</h3>
@@ -273,7 +275,8 @@
                     <!-- Variation 5 (Example) -->
                     <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 400ms;">
                         <div class="aspect-[9/16]">
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" autoplay loop muted playsinline poster="https://placehold.co/900x1600/1F2937/22D3EE?text=Variation+5"></video>
+                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
+                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/1F2937/22D3EE?text=Variation+5" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Variation Title Five</h3>
@@ -298,7 +301,8 @@
                     <!-- Insta Reel 1 -->
                     <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105">
                         <div class="aspect-[9/16]">
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" autoplay loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+1"></video>
+                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
+                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+1" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Insta Reel One</h3>
@@ -309,7 +313,8 @@
                     <!-- Insta Reel 2 -->
                     <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 100ms;">
                         <div class="aspect-[9/16]">
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" autoplay loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+2"></video>
+                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
+                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+2" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Insta Reel Two</h3>
@@ -320,7 +325,8 @@
                     <!-- Insta Reel 3 -->
                     <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 200ms;">
                         <div class="aspect-[9/16]">
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" autoplay loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+3"></video>
+                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
+                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+3" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Insta Reel Three</h3>
@@ -331,7 +337,8 @@
                     <!-- Insta Reel 4 -->
                     <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 300ms;">
                         <div class="aspect-[9/16]">
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" autoplay loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+4"></video>
+                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
+                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+4" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Insta Reel Four</h3>
@@ -581,6 +588,40 @@
                     }
                 });
             });
+
+            // --- FIX FOR AbortError ---
+            // These functions safely handle play/pause to prevent errors from rapid hovering.
+            
+            // Helper function to safely play a video
+            async function safePlay(videoElement) {
+                try {
+                    // play() returns a promise, we await it
+                    await videoElement.play();
+                } catch (error) {
+                    // Check if it's the specific AbortError
+                    if (error.name === 'AbortError') {
+                        // This error is expected if the user mouses out quickly.
+                        // We can safely ignore it.
+                    } else {
+                        // Log other unexpected errors
+                        console.error("Error playing video:", error);
+                    }
+                }
+            }
+
+            // Helper function to safely pause a video
+            function safePause(videoElement) {
+                // Only pause if it's not already paused
+                if (!videoElement.paused) {
+                    videoElement.pause();
+                }
+                // Reset time to the beginning
+                videoElement.currentTime = 0; 
+            }
+            
+            // Attach these functions to the window object so inline HTML can find them
+            window.safePlay = safePlay;
+            window.safePause = safePause;
 
         });
     </script>

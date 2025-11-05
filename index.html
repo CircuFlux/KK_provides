@@ -13,6 +13,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 
+    <!-- 
+      FIX 1: ADD YOUTUBE API SCRIPT
+      This is required to control all YouTube <iframe> players.
+    -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
     <!-- Custom CSS -->
     <style>
         /* Set base font */
@@ -22,7 +28,7 @@
             color: #F9FAFB; /* Light text (gray-50) */
         }
 
-        /* Hero video styles */
+        /* ... existing styles ... */
         #hero-video-container {
             position: absolute;
             top: 0;
@@ -37,7 +43,6 @@
             height: 100%;
             object-fit: cover;
         }
-        /* Dark overlay for video */
         #hero-overlay {
             position: absolute;
             top: 0;
@@ -47,8 +52,6 @@
             background-color: rgba(0, 0, 0, 0.6);
             z-index: -1;
         }
-
-        /* Glowing accent effect for buttons and links */
         .glow-accent {
             border-color: #22d3ee; /* cyan-400 */
             color: #22d3ee;
@@ -60,12 +63,9 @@
             color: #111827;
             box-shadow: 0 0 15px #22d3ee, 0 0 25px #22d3ee;
         }
-        
-        /* Add pulse animation for the hero button */
         .glow-accent-pulse {
             animation: pulse-glow 2s infinite ease-in-out;
         }
-
         @keyframes pulse-glow {
             0%, 100% {
                 box-shadow: 0 0 5px #22d3ee, 0 0 10px #22d3ee;
@@ -74,13 +74,9 @@
                 box-shadow: 0 0 15px #22d3ee, 0 0 25px #22d3ee;
             }
         }
-
-        /* Text glow effect */
         .text-glow {
             text-shadow: 0 0 8px #22d3ee;
         }
-        
-        /* Nav link hover effect */
         .nav-link {
             position: relative;
             transition: color 0.3s ease;
@@ -102,8 +98,6 @@
         .nav-link:hover::after {
             width: 100%;
         }
-
-        /* Scroll-reveal animation */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -186,10 +180,10 @@
                 <!-- Grid layout for Variations -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                     
-                    <!-- Variation 1 -->
+                    <!-- Variation 1 (<video> tag) -->
                     <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105">
                         <div class="aspect-[9/16]">
-                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
+                            <!-- This uses safePlay/safePause -->
                             <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/1F2937/22D3EE?text=Variation+1" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
@@ -198,10 +192,10 @@
                         </div>
                     </div>
 
-                    <!-- Variation 2 -->
+                    <!-- Variation 2 (<video> tag) -->
                     <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 100ms;">
                         <div class="aspect-[9/16]">
-                            <!-- FIX: Fixed missing </video> tag and updated to safe hover-to-play -->
+                            <!-- This uses safePlay/safePause -->
                             <video class="w-full h-full object-cover" muted loop playsinline onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
@@ -209,73 +203,76 @@
                             <p class="text-gray-400 text-sm">Short description.</p>
                         </div>
                     </div>
-                    <!--Variasion 3-->
-                    <div class="bg-gray-800 rounded-lg ...">
-    <div class="aspect-[9/16]">
-        
-        <!-- Paste your YouTube embed code and add the class/URL params -->
-        <iframe 
-            class="w-full h-full" 
-            src="https://www.youtube.com/embed/FQY-puaFgKs?autoplay=1&mute=1" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen>
-        </iframe>
 
-    </div>
-    <div class="p-4">
-        <h3 class="text-xl font-bold mb-1 truncate">Podcast edited clip.</h3>
-        <p class="text-gray-400 text-sm">This video is also one of my podcast’s edited clips from two years ago.</p>
-    </div>
-</div>
+                    <!--
+                      FIX 2: MODIFY ALL YOUTUBE IFRAMES
+                      - Add 'youtube-card' class to parent div.
+                      - Add a unique 'id' to the iframe tag.
+                      - Remove 'autoplay=1&mute=1' from src.
+                      - Add '&enablejsapi=1' to src.
+                    -->
 
-                    <!-- Variation 1 (Now a YouTube Short) -->
-<div class="bg-gray-800 rounded-lg ...">
-    <div class="aspect-[9/16]">
-        
-        <!-- Paste your YouTube embed code and add the class/URL params -->
-        <iframe 
-            class="w-full h-full" 
-            src="https://www.youtube.com/embed/5TdqWsiyShM?autoplay=1&mute=1" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen>
-        </iframe>
+                    <!--Variation 3 (YouTube Short)-->
+                    <div class="bg-gray-800 rounded-lg ... youtube-card"> <!-- Added class -->
+                        <div class="aspect-[9/16]">
+                            <iframe 
+                                id="yt-player-1" <!-- Added unique ID -->
+                                class="w-full h-full" 
+                                src="https://www.youtube.com/embed/FQY-puaFgKs?enablejsapi=1" <!-- Edited src -->
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-1 truncate">Podcast edited clip.</h3>
+                            <p class="text-gray-400 text-sm">This video is also one of my podcast’s edited clips from two years ago.</p>
+                        </div>
+                    </div>
 
-    </div>
-    <div class="p-4">
-        <h3 class="text-xl font-bold mb-1 truncate">Podcast edited clip.</h3>
-        <p class="text-gray-400 text-sm">This video is also one of my podcast’s edited clips from two years ago.</p>
-    </div>
-</div>
+                    <!-- Variation 4 (YouTube Short) -->
+                    <div class="bg-gray-800 rounded-lg ... youtube-card"> <!-- Added class -->
+                        <div class="aspect-[9/16]">
+                            <iframe 
+                                id="yt-player-2" <!-- Added unique ID -->
+                                class="w-full h-full" 
+                                src="https://www.youtube.com/embed/5TdqWsiyShM?enablejsapi=1" <!-- Edited src -->
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-1 truncate">Podcast edited clip.</h3>
+                            <p class="text-gray-400 text-sm">This video is also one of my podcast’s edited clips from two years ago.</p>
+                        </div>
+                    </div>
                     
-                    <!-- Variation 4 -->
-                    <div class="bg-gray-800 rounded-lg ...">
-    <div class="aspect-[9/16]">
-        
-        <!-- Paste your YouTube embed code and add the class/URL params -->
-        <iframe 
-            class="w-full h-full" 
-            src="https://www.youtube.com/embed/sb_x_rCuJNo?autoplay=1&mute=1" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen>
-        </iframe>
-
-    </div>
-    <div class="p-4">
-        <h3 class="text-xl font-bold mb-1 truncate">Podcast clips.</h3>
-        <p class="text-gray-400 text-sm">This video is also one of my podcast’s edited clips from two years ago.</p>
-    </div>
-</div>
+                    <!-- Variation 5 (YouTube Short) -->
+                    <div class="bg-gray-800 rounded-lg ... youtube-card"> <!-- Added class -->
+                        <div class="aspect-[9/16]">
+                            <iframe 
+                                id="yt-player-3" <!-- Added unique ID -->
+                                class="w-full h-full" 
+                                src="https://www.youtube.com/embed/sb_x_rCuJNo?enablejsapi=1" <!-- Edited src -->
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-1 truncate">Podcast clips.</h3>
+                            <p class="text-gray-400 text-sm">This video is also one of my podcast’s edited clips from two years ago.</p>
+                        </div>
+                    </div>
                     
-                    <!-- Variation 5 (Example) -->
+                    <!-- Variation 6 (<video> tag) -->
                     <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 400ms;">
                         <div class="aspect-[9/16]">
-                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
+                            <!-- This uses safePlay/safePause -->
                             <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/1F2937/22D3EE?text=Variation+5" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
@@ -298,10 +295,10 @@
                 <!-- Grid layout for Insta Reels -->
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
                     
-                    <!-- Insta Reel 1 -->
+                    <!-- Insta Reel 1 (<video> tag) -->
                     <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105">
                         <div class="aspect-[9/16]">
-                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
+                            <!-- This uses safePlay/safePause -->
                             <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+1" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
@@ -310,10 +307,10 @@
                         </div>
                     </div>
 
-                    <!-- Insta Reel 2 -->
+                    <!-- Insta Reel 2 (<video> tag) -->
                     <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 100ms;">
                         <div class="aspect-[9/16]">
-                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
+                            <!-- This uses safePlay/safePause -->
                             <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+2" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
@@ -322,10 +319,10 @@
                         </div>
                     </div>
 
-                    <!-- Insta Reel 3 -->
+                    <!-- Insta Reel 3 (<video> tag) -->
                     <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 200ms;">
                         <div class="aspect-[9/16]">
-                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
+                            <!-- This uses safePlay/safePause -->
                             <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+3" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
@@ -334,10 +331,10 @@
                         </div>
                     </div>
                     
-                    <!-- Insta Reel 4 -->
+                    <!-- Insta Reel 4 (<video> tag) -->
                     <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 300ms;">
                         <div class="aspect-[9/16]">
-                            <!-- FIX: Removed autoplay, added safe hover-to-play -->
+                            <!-- This uses safePlay/safePause -->
                             <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+4" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
                         </div>
                         <div class="p-4">
@@ -359,15 +356,16 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                     
-                    <!-- Video 1 -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105">
+                    <!-- Video 1 (YouTube <iframe>) -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105 youtube-card"> <!-- Added class -->
                         <div class="aspect-video">
                             <iframe 
+                                id="yt-player-4" <!-- Added unique ID -->
                                 class="w-full h-full" 
-                                src="https://www.youtube.com/embed/ScBY3nO8f-8?si=aRiy3f-xYJ-8s9lM&autoplay=1&mute=1" 
+                                src="https://www.youtube.com/embed/ScBY3nO8f-8?si=aRiy3f-xYJ-8s9lM&enablejsapi=1" <!-- Edited src -->
                                 title="YouTube video player" 
                                 frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                 referrerpolicy="strict-origin-when-cross-origin" 
                                 allowfullscreen>
                             </iframe>
@@ -381,12 +379,13 @@
                         </div>
                     </div>
 
-                    <!-- Video 2 -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll" style="transition-delay: 200ms;">
+                    <!-- Video 2 (YouTube <iframe>) -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll youtube-card" style="transition-delay: 200ms;"> <!-- Added class -->
                         <div class="aspect-video">
                             <iframe 
+                                id="yt-player-5" <!-- Added unique ID -->
                                 class="w-full h-full" 
-                                src="https://www.youtube.com/embed/nTMYt4urs60?autoplay=1&mute=1" 
+                                src="https://www.youtube.com/embed/nTMYt4urs60?enablejsapi=1" <!-- Edited src -->
                                 title="YouTube video player" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -403,12 +402,13 @@
                         </div>
                     </div>
 
-                    <!-- Video 3 -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll" style="transition-delay: 400ms;">
+                    <!-- Video 3 (YouTube <iframe>) -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll youtube-card" style="transition-delay: 400ms;"> <!-- Added class -->
                         <div class="aspect-video">
                             <iframe 
+                                id="yt-player-6" <!-- Added unique ID -->
                                 class="w-full h-full" 
-                                src="https://www.youtube.com/embed/your-video-id?autoplay=1&mute=1" 
+                                src="https://www.youtube.com/embed/your-video-id?enablejsapi=1" <!-- Edited src -->
                                 title="YouTube video player" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -431,6 +431,7 @@
 
         <!-- About Section -->
         <section id="about" class="py-20 md:py-32 bg-gray-800">
+            <!-- ... existing about content ... -->
             <div class="container mx-auto max-w-6xl px-6">
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
                     
@@ -480,6 +481,7 @@
 
         <!-- Contact Section -->
         <section id="contact" class="py-20 md:py-32 bg-gray-900">
+            <!-- ... existing contact content ... -->
             <div class="container mx-auto max-w-3xl px-6 reveal-on-scroll text-center">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
                     Let's <span class="text-cyan-400 text-glow">Work Together</span>
@@ -555,19 +557,16 @@
 
             // Intersection Observer for scroll-reveal animations
             const revealElements = document.querySelectorAll('.reveal-on-scroll');
-
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        // No need to unobserve, let it stay visible
                     }
                 });
             }, {
-                root: null, // relative to viewport
-                threshold: 0.1 // 10% of item visible
+                root: null, 
+                threshold: 0.1 
             });
-
             revealElements.forEach(el => {
                 observer.observe(el);
             });
@@ -576,10 +575,8 @@
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
-                    
                     if (targetElement) {
                         targetElement.scrollIntoView({
                             behavior: 'smooth',
@@ -589,41 +586,84 @@
                 });
             });
 
-            // --- FIX FOR AbortError ---
-            // These functions safely handle play/pause to prevent errors from rapid hovering.
-            
-            // Helper function to safely play a video
+            // --- FIX FOR <video> AbortError ---
             async function safePlay(videoElement) {
                 try {
-                    // play() returns a promise, we await it
                     await videoElement.play();
                 } catch (error) {
-                    // Check if it's the specific AbortError
-                    if (error.name === 'AbortError') {
-                        // This error is expected if the user mouses out quickly.
-                        // We can safely ignore it.
-                    } else {
-                        // Log other unexpected errors
+                    if (error.name !== 'AbortError') {
                         console.error("Error playing video:", error);
                     }
                 }
             }
-
-            // Helper function to safely pause a video
             function safePause(videoElement) {
-                // Only pause if it's not already paused
                 if (!videoElement.paused) {
                     videoElement.pause();
                 }
-                // Reset time to the beginning
                 videoElement.currentTime = 0; 
             }
-            
-            // Attach these functions to the window object so inline HTML can find them
             window.safePlay = safePlay;
             window.safePause = safePause;
 
         });
+
+        // ---
+        // FIX 3: ADD YOUTUBE API JAVASCRIPT
+        // This code will find all 'youtube-card' elements and add hover events.
+        // ---
+
+        // This object will store all player instances
+        let ytPlayers = {};
+
+        // This function is called automatically by the YouTube API script
+        function onYouTubeIframeAPIReady() {
+            // Find all our tagged cards
+            const videoCards = document.querySelectorAll('.youtube-card');
+            
+            videoCards.forEach(card => {
+                const iframe = card.querySelector('iframe');
+                if (iframe) {
+                    const playerId = iframe.id;
+                    
+                    // Create a new player
+                    if (playerId) {
+                        ytPlayers[playerId] = new YT.Player(playerId, {
+                            events: {
+                                // Call 'onPlayerReady' when the video is loaded
+                                'onReady': (event) => onPlayerReady(event, card)
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+        // This function runs for each player when it's ready
+        function onPlayerReady(event, card) {
+            const player = event.target;
+            
+            // Mute the video
+            player.mute();
+            
+            // Add hover event to the PARENT CARD
+            card.addEventListener('mouseenter', () => {
+                // Check if the player has the playVideo function (it might not be fully ready)
+                if (typeof player.playVideo === 'function') {
+                    player.playVideo();
+                }
+            });
+            
+            // Add mouse leave event to the PARENT CARD
+            card.addEventListener('mouseleave', () => {
+                // Check if the player has the pauseVideo function
+                if (typeof player.pauseVideo === 'function') {
+                    player.pauseVideo();
+                    // Optional: Rewind video to start
+                    player.seekTo(0); 
+                }
+            });
+        }
+
     </script>
 
 </body>

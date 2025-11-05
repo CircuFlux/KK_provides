@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 
     <!-- 
-      FIX 1: ADD YOUTUBE API SCRIPT
+      YOUTUBE API SCRIPT
       This is required to control all YouTube <iframe> players.
     -->
     <script src="https://www.youtube.com/iframe_api"></script>
@@ -180,11 +180,17 @@
                 <!-- Grid layout for Variations -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                     
+                    <!-- 
+                        NEW CARD CLASS:
+                        - Added 'video-card-on-scroll' to all video parent divs.
+                        - This class is what the new IntersectionObserver looks for.
+                    -->
+
                     <!-- Variation 1 (<video> tag) -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105">
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105 video-card-on-scroll">
                         <div class="aspect-[9/16]">
-                            <!-- This uses safePlay/safePause -->
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/1F2937/22D3EE?text=Variation+1" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
+                            <!-- REMOVED: onmouseenter/onmouseleave -->
+                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/1F2937/22D3EE?text=Variation+1"></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Variation Title One</h3>
@@ -193,10 +199,10 @@
                     </div>
 
                     <!-- Variation 2 (<video> tag) -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 100ms;">
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105 video-card-on-scroll" style="transition-delay: 100ms;">
                         <div class="aspect-[9/16]">
-                            <!-- This uses safePlay/safePause -->
-                            <video class="w-full h-full object-cover" muted loop playsinline onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
+                            <!-- REMOVED: onmouseenter/onmouseleave -->
+                            <video class="w-full h-full object-cover" muted loop playsinline></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Variation Title Two</h3>
@@ -205,18 +211,18 @@
                     </div>
 
                     <!--
-                      FIX 2: MODIFY ALL YOUTUBE IFRAMES
-                      - Add 'youtube-card' class to parent div.
-                      - Add a unique 'id' to the iframe tag.
-                      - Remove 'autoplay=1&mute=1' from src.
-                      - Add '&enablejsapi=1' to src.
+                      YOUTUBE CARD CHANGES:
+                      - 'youtube-card' class is still here (for the API).
+                      - 'video-card-on-scroll' is ADDED (for the observer).
+                      - 'id' is still here.
+                      - 'src' has 'enablejsapi=1' and NO 'autoplay=1'.
                     -->
 
                     <!--Variation 3 (YouTube Short)-->
-                    <div class="bg-gray-800 rounded-lg ... youtube-card"> <!-- Added class -->
+                    <div class="bg-gray-800 rounded-lg ... youtube-card video-card-on-scroll">
                         <div class="aspect-[9/16]">
                             <iframe 
-                                id="yt-player-1" <!-- Added unique ID -->
+                                id="yt-player-1" <!-- Unique ID -->
                                 class="w-full h-full" 
                                 src="https://www.youtube.com/embed/FQY-puaFgKs?enablejsapi=1" <!-- Edited src -->
                                 title="YouTube video player" 
@@ -232,10 +238,10 @@
                     </div>
 
                     <!-- Variation 4 (YouTube Short) -->
-                    <div class="bg-gray-800 rounded-lg ... youtube-card"> <!-- Added class -->
+                    <div class="bg-gray-800 rounded-lg ... youtube-card video-card-on-scroll">
                         <div class="aspect-[9/16]">
                             <iframe 
-                                id="yt-player-2" <!-- Added unique ID -->
+                                id="yt-player-2" <!-- Unique ID -->
                                 class="w-full h-full" 
                                 src="https://www.youtube.com/embed/5TdqWsiyShM?enablejsapi=1" <!-- Edited src -->
                                 title="YouTube video player" 
@@ -251,10 +257,10 @@
                     </div>
                     
                     <!-- Variation 5 (YouTube Short) -->
-                    <div class="bg-gray-800 rounded-lg ... youtube-card"> <!-- Added class -->
+                    <div class="bg-gray-800 rounded-lg ... youtube-card video-card-on-scroll">
                         <div class="aspect-[9/16]">
                             <iframe 
-                                id="yt-player-3" <!-- Added unique ID -->
+                                id="yt-player-3" <!-- Unique ID -->
                                 class="w-full h-full" 
                                 src="https://www.youtube.com/embed/sb_x_rCuJNo?enablejsapi=1" <!-- Edited src -->
                                 title="YouTube video player" 
@@ -270,10 +276,10 @@
                     </div>
                     
                     <!-- Variation 6 (<video> tag) -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 400ms;">
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105 video-card-on-scroll" style="transition-delay: 400ms;">
                         <div class="aspect-[9/16]">
-                            <!-- This uses safePlay/safePause -->
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/1F2937/22D3EE?text=Variation+5" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
+                            <!-- REMOVED: onmouseenter/onmouseleave -->
+                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/1F2937/22D3EE?text=Variation+5"></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Variation Title Five</h3>
@@ -296,10 +302,10 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
                     
                     <!-- Insta Reel 1 (<video> tag) -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105 video-card-on-scroll">
                         <div class="aspect-[9/16]">
-                            <!-- This uses safePlay/safePause -->
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+1" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
+                            <!-- REMOVED: onmouseenter/onmouseleave -->
+                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+1"></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Insta Reel One</h3>
@@ -308,10 +314,10 @@
                     </div>
 
                     <!-- Insta Reel 2 (<video> tag) -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 100ms;">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105 video-card-on-scroll" style="transition-delay: 100ms;">
                         <div class="aspect-[9/16]">
-                            <!-- This uses safePlay/safePause -->
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+2" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
+                            <!-- REMOVED: onmouseenter/onmouseleave -->
+                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+2"></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Insta Reel Two</h3>
@@ -320,10 +326,10 @@
                     </div>
 
                     <!-- Insta Reel 3 (<video> tag) -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 200ms;">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105 video-card-on-scroll" style="transition-delay: 200ms;">
                         <div class="aspect-[9/16]">
-                            <!-- This uses safePlay/safePause -->
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+3" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
+                            <!-- REMOVED: onmouseenter/onmouseleave -->
+                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+3"></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Insta Reel Three</h3>
@@ -332,10 +338,10 @@
                     </div>
                     
                     <!-- Insta Reel 4 (<video> tag) -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105" style="transition-delay: 300ms;">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105 video-card-on-scroll" style="transition-delay: 300ms;">
                         <div class="aspect-[9/16]">
-                            <!-- This uses safePlay/safePause -->
-                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+4" onmouseenter="safePlay(this)" onmouseleave="safePause(this)"></video>
+                            <!-- REMOVED: onmouseenter/onmouseleave -->
+                            <video class="w-full h-full object-cover" src="https://www.w3schools.com/tags/movie.mp4" loop muted playsinline poster="https://placehold.co/900x1600/111827/22D3EE?text=Insta+Reel+4"></video>
                         </div>
                         <div class="p-4">
                             <h3 class="text-xl font-bold mb-1 truncate">Insta Reel Four</h3>
@@ -357,10 +363,10 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                     
                     <!-- Video 1 (YouTube <iframe>) -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105 youtube-card"> <!-- Added class -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll transform transition-all duration-300 hover:scale-105 youtube-card video-card-on-scroll">
                         <div class="aspect-video">
                             <iframe 
-                                id="yt-player-4" <!-- Added unique ID -->
+                                id="yt-player-4" <!-- Unique ID -->
                                 class="w-full h-full" 
                                 src="https://www.youtube.com/embed/ScBY3nO8f-8?si=aRiy3f-xYJ-8s9lM&enablejsapi=1" <!-- Edited src -->
                                 title="YouTube video player" 
@@ -380,10 +386,10 @@
                     </div>
 
                     <!-- Video 2 (YouTube <iframe>) -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll youtube-card" style="transition-delay: 200ms;"> <!-- Added class -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll youtube-card video-card-on-scroll" style="transition-delay: 200ms;">
                         <div class="aspect-video">
                             <iframe 
-                                id="yt-player-5" <!-- Added unique ID -->
+                                id="yt-player-5" <!-- Unique ID -->
                                 class="w-full h-full" 
                                 src="https://www.youtube.com/embed/nTMYt4urs60?enablejsapi=1" <!-- Edited src -->
                                 title="YouTube video player" 
@@ -403,10 +409,10 @@
                     </div>
 
                     <!-- Video 3 (YouTube <iframe>) -->
-                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll youtube-card" style="transition-delay: 400ms;"> <!-- Added class -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl reveal-on-scroll youtube-card video-card-on-scroll" style="transition-delay: 400ms;">
                         <div class="aspect-video">
                             <iframe 
-                                id="yt-player-6" <!-- Added unique ID -->
+                                id="yt-player-6" <!-- Unique ID -->
                                 class="w-full h-full" 
                                 src="https://www.youtube.com/embed/your-video-id?enablejsapi=1" <!-- Edited src -->
                                 title="YouTube video player" 
@@ -434,45 +440,21 @@
             <!-- ... existing about content ... -->
             <div class="container mx-auto max-w-6xl px-6">
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
-                    
-                    <!-- About Text -->
                     <div class="md:col-span-3 reveal-on-scroll">
-                        <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                            About <span class="text-cyan-400 text-glow">Me</span>
-                        </h2>
-                        <p class="text-lg text-gray-300 leading-relaxed mb-4">
-                            Hi, I'm Kaushik, a freelance video editor and motion designer. Having experience more than 3 years in content creation. I'm deeply passionate about the art of storytelling and how it comes to life through editing, motion, and sound.
-                        </p>
-                        <p class="text-lg text-gray-300 leading-relaxed">
-                            For me, every project is a new story waiting to be told. I specialize in crafting compelling narratives, designing emotive color tones, and creating dynamic motion graphics that capture and hold attention.
-                        </p>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">About <span class="text-cyan-400 text-glow">Me</span></h2>
+                        <p class="text-lg text-gray-300 leading-relaxed mb-4">Hi, I'm Kaushik, a freelance video editor and motion designer. Having experience more than 3 years in content creation. I'm deeply passionate about the art of storytelling and how it comes to life through editing, motion, and sound.</p>
+                        <p class="text-lg text-gray-300 leading-relaxed">For me, every project is a new story waiting to be told. I specialize in crafting compelling narratives, designing emotive color tones, and creating dynamic motion graphics that capture and hold attention.</p>
                     </div>
-
-                    <!-- Skills List -->
                     <div class="md:col-span-2 reveal-on-scroll" style="transition-delay: 200ms;">
                         <h3 class="text-3xl font-bold mb-6 text-gray-100">My Toolkit</h3>
                         <ul class="space-y-3">
-                            <li class="flex items-center text-lg">
-                                <span class="text-cyan-400 mr-3">&#10003;</span> Video Editing
-                            </li>
-                            <li class="flex items-center text-lg">
-                                <span class="text-cyan-400 mr-3">&#10003;</span> Motion Graphics
-                            </li>
-                            <li class="flex items-center text-lg">
-                                <span class="text-cyan-400 mr-3">&#10003;</span> Color Grading
-                            </li>
-                            <li class="flex items-center text-lg">
-                                <span class="text-cyan-400 mr-3">&#10003;</span> Adobe Premiere Pro
-                            </li>
-                            <li class="flex items-center text-lg">
-                                <span class="text-cyan-400 mr-3">&#10003;</span> Adobe After Effects
-                            </li>
-                            <li class="flex items-center text-lg">
-                                <span class="text-cyan-400 mr-3">&#10003;</span> Photoshop
-                            </li>
-                            <li class="flex items-center text-lg">
-                                <span class="text-cyan-400 mr-3">&#10003;</span> Capcut
-                            </li>
+                            <li class="flex items-center text-lg"><span class="text-cyan-400 mr-3">&#10003;</span> Video Editing</li>
+                            <li class="flex items-center text-lg"><span class="text-cyan-400 mr-3">&#10003;</span> Motion Graphics</li>
+                            <li class="flex items-center text-lg"><span class="text-cyan-400 mr-3">&#10003;</span> Color Grading</li>
+                            <li class="flex items-center text-lg"><span class="text-cyan-400 mr-3">&#10003;</span> Adobe Premiere Pro</li>
+                            <li class="flex items-center text-lg"><span class="text-cyan-400 mr-3">&#10003;</span> Adobe After Effects</li>
+                            <li class="flex items-center text-lg"><span class="text-cyan-400 mr-3">&#10003;</span> Photoshop</li>
+                            <li class="flex items-center text-lg"><span class="text-cyan-400 mr-3">&#10003;</span> Capcut</li>
                         </ul>
                     </div>
                 </div>
@@ -483,58 +465,19 @@
         <section id="contact" class="py-20 md:py-32 bg-gray-900">
             <!-- ... existing contact content ... -->
             <div class="container mx-auto max-w-3xl px-6 reveal-on-scroll text-center">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    Let's <span class="text-cyan-400 text-glow">Work Together</span>
-                </h2>
-                <p class="text-xl text-gray-300 mb-12">
-                    Have a project in mind? Fill out the form below or email me directly at
-                    <a href="mailto:kaushikkalita.work@gmail.com" class="text-cyan-400 hover:text-cyan-300 transition-all">kaushikkalita.work@gmail.com</a>.
-                </p>
-
-                <!-- Contact Form -->
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Let's <span class="text-cyan-400 text-glow">Work Together</span></h2>
+                <p class="text-xl text-gray-300 mb-12">Have a project in mind? Fill out the form below or email me directly at <a href="mailto:kaushikkalita.work@gmail.com" class="text-cyan-400 hover:text-cyan-300 transition-all">kaushikkalita.work@gmail.com</a>.</p>
                 <form data-netlify="true" name="contact" method="POST" class="text-left max-w-xl mx-auto">
                     <input type="hidden" name="form-name" value="contact" />
-                    
-                    <!-- Name Field -->
-                    <div class="mb-5">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-300">Your Name</label>
-                        <input type="text" id="name" name="name" class="block w-full p-3 text-gray-100 bg-gray-800 border border-gray-700 rounded-lg shadow-sm focus:ring-cyan-500 focus:border-cyan-500 transition-all" placeholder="John Doe" required>
-                    </div>
-                    
-                    <!-- Email Field -->
-                    <div class="mb-5">
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Your Email</label>
-                        <input type="email" id="email" name="email" class="block w-full p-3 text-gray-100 bg-gray-800 border border-gray-700 rounded-lg shadow-sm focus:ring-cyan-500 focus:border-cyan-500 transition-all" placeholder="you@example.com" required>
-                    </div>
-                    
-                    <!-- Message Field -->
-                    <div class="mb-8">
-                        <label for="message" class="block mb-2 text-sm font-medium text-gray-300">Your Message</label>
-                        <textarea id="message" name="message" rows="6" class="block w-full p-3 text-gray-100 bg-gray-800 border border-gray-700 rounded-lg shadow-sm focus:ring-cyan-500 focus:border-cyan-500 transition-all" placeholder="Tell me about your project..." required></textarea>
-                    </div>
-                    
-                    <!-- Submit Button -->
-                    <div class="text-center">
-                        <button type="submit" class="inline-block w-full md:w-auto px-10 py-3 text-lg font-semibold border-2 rounded-lg glow-accent">
-                            Send Message
-                        </button>
-                    </div>
+                    <div class="mb-5"><label for="name" class="block mb-2 text-sm font-medium text-gray-300">Your Name</label><input type="text" id="name" name="name" class="block w-full p-3 text-gray-100 bg-gray-800 border border-gray-700 rounded-lg shadow-sm focus:ring-cyan-500 focus:border-cyan-500 transition-all" placeholder="John Doe" required></div>
+                    <div class="mb-5"><label for="email" class="block mb-2 text-sm font-medium text-gray-300">Your Email</label><input type="email" id="email" name="email" class="block w-full p-3 text-gray-100 bg-gray-800 border border-gray-700 rounded-lg shadow-sm focus:ring-cyan-500 focus:border-cyan-500 transition-all" placeholder="you@example.com" required></div>
+                    <div class="mb-8"><label for="message" class="block mb-2 text-sm font-medium text-gray-300">Your Message</label><textarea id="message" name="message" rows="6" class="block w-full p-3 text-gray-100 bg-gray-800 border border-gray-700 rounded-lg shadow-sm focus:ring-cyan-500 focus:border-cyan-500 transition-all" placeholder="Tell me about your project..." required></textarea></div>
+                    <div class="text-center"><button type="submit" class="inline-block w-full md:w-auto px-10 py-3 text-lg font-semibold border-2 rounded-lg glow-accent">Send Message</button></div>
                 </form>
-
-                <!-- Social Icons -->
                 <div class="flex justify-center space-x-8 mt-16">
-                    <!-- YouTube -->
-                    <a href="#" aria-label="YouTube" class="text-gray-400 transition-all hover:text-cyan-400 hover:scale-110">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
-                    </a>
-                    <!-- Instagram -->
-                    <a href="#" aria-label="Instagram" class="text-gray-400 transition-all hover:text-cyan-400 hover:scale-110">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.227-1.667 4.77-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.227 1.667-4.77 4.919 4.919 1.266.058 1.646.07 4.85.07zm0-2.163c-3.273 0-3.663.014-4.945.072-4.305.197-7.22 3.118-7.417 7.417-.058 1.283-.072 1.672-.072 4.945s.014 3.663.072 4.945c.197 4.305 3.118 7.22 7.417 7.417 1.283.058 1.672.072 4.945.072s3.663-.014 4.945-.072c4.305-.197 7.22-3.118 7.417-7.417.058-1.283.072-1.672.072-4.945s-.014-3.663-.072-4.945c-.197-4.305-3.118-7.22-7.417-7.417-1.283-.058-1.672-.072-4.945-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.44-.645 1.44-1.44s-.645-1.44-1.44-1.44z"></path></svg>
-                    </a>
-                    <!-- LinkedIn -->
-                    <a href="#" aria-label="LinkedIn" class="text-gray-400 transition-all hover:text-cyan-400 hover:scale-110">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg>
-                    </a>
+                    <a href="#" aria-label="YouTube" class="text-gray-400 transition-all hover:text-cyan-400 hover:scale-110"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg></a>
+                    <a href="#" aria-label="Instagram" class="text-gray-400 transition-all hover:text-cyan-400 hover:scale-110"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.227-1.667 4.77-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.148-3.227 1.667-4.77 4.919 4.919 1.266.058 1.646.07 4.85.07zm0-2.163c-3.273 0-3.663.014-4.945.072-4.305.197-7.22 3.118-7.417 7.417-.058 1.283-.072 1.672-.072 4.945s.014 3.663.072 4.945c.197 4.305 3.118 7.22 7.417 7.417 1.283.058 1.672.072 4.945.072s3.663-.014 4.945-.072c4.305-.197 7.22-3.118 7.417-7.417.058-1.283.072-1.672.072-4.945s-.014-3.663-.072-4.945c-.197-4.305-3.118-7.22-7.417-7.417-1.283-.058-1.672-.072-4.945-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.44-.645 1.44-1.44s-.645-1.44-1.44-1.44z"></path></svg></a>
+                    <a href="#" aria-label="LinkedIn" class="text-gray-400 transition-all hover:text-cyan-400 hover:scale-110"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg></a>
                 </div>
             </div>
         </section>
@@ -550,68 +493,25 @@
 
     <!-- JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            
-            // Set current year in footer
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-
-            // Intersection Observer for scroll-reveal animations
-            const revealElements = document.querySelectorAll('.reveal-on-scroll');
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, {
-                root: null, 
-                threshold: 0.1 
-            });
-            revealElements.forEach(el => {
-                observer.observe(el);
-            });
-
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-
-            // --- FIX FOR <video> AbortError ---
-            async function safePlay(videoElement) {
-                try {
-                    await videoElement.play();
-                } catch (error) {
-                    if (error.name !== 'AbortError') {
-                        console.error("Error playing video:", error);
-                    }
+        // --- Safe Play/Pause for HTML <video> ---
+        // Prevents the AbortError from rapid scrolling
+        async function safePlay(videoElement) {
+            try {
+                await videoElement.play();
+            } catch (error) {
+                if (error.name !== 'AbortError') {
+                    console.error("Error playing video:", error);
                 }
             }
-            function safePause(videoElement) {
-                if (!videoElement.paused) {
-                    videoElement.pause();
-                }
-                videoElement.currentTime = 0; 
+        }
+        function safePause(videoElement) {
+            if (!videoElement.paused) {
+                videoElement.pause();
             }
-            window.safePlay = safePlay;
-            window.safePause = safePause;
+            videoElement.currentTime = 0; 
+        }
 
-        });
-
-        // ---
-        // FIX 3: ADD YOUTUBE API JAVASCRIPT
-        // This code will find all 'youtube-card' elements and add hover events.
-        // ---
-
+        // --- YouTube Player API ---
         // This object will store all player instances
         let ytPlayers = {};
 
@@ -630,7 +530,7 @@
                         ytPlayers[playerId] = new YT.Player(playerId, {
                             events: {
                                 // Call 'onPlayerReady' when the video is loaded
-                                'onReady': (event) => onPlayerReady(event, card)
+                                'onReady': onPlayerReady
                             }
                         });
                     }
@@ -639,31 +539,115 @@
         }
 
         // This function runs for each player when it's ready
-        function onPlayerReady(event, card) {
-            const player = event.target;
-            
+        function onPlayerReady(event) {
             // Mute the video
-            player.mute();
-            
-            // Add hover event to the PARENT CARD
-            card.addEventListener('mouseenter', () => {
-                // Check if the player has the playVideo function (it might not be fully ready)
-                if (typeof player.playVideo === 'function') {
-                    player.playVideo();
-                }
-            });
-            
-            // Add mouse leave event to the PARENT CARD
-            card.addEventListener('mouseleave', () => {
-                // Check if the player has the pauseVideo function
-                if (typeof player.pauseVideo === 'function') {
-                    player.pauseVideo();
-                    // Optional: Rewind video to start
-                    player.seekTo(0); 
-                }
-            });
+            event.target.mute();
+            // We removed the hover listeners from here.
         }
 
+
+        // --- Main JS on Page Load ---
+        document.addEventListener('DOMContentLoaded', (event) => {
+            
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Intersection Observer for scroll-reveal animations
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            const animationObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                root: null, 
+                threshold: 0.1 
+            });
+            revealElements.forEach(el => {
+                animationObserver.observe(el);
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // ---
+            // NEW: "PLAY-ON-SCROLL" INTERSECTION OBSERVER
+            // ---
+
+            // 1. Find all video cards
+            const videoCards = document.querySelectorAll('.video-card-on-scroll');
+
+            // 2. Create the observer
+            const videoObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    const card = entry.target;
+                    
+                    // Find the video type
+                    const htmlVideo = card.querySelector('video');
+                    const ytIframe = card.querySelector('iframe');
+
+                    if (entry.isIntersecting) {
+                        // --- ELEMENT IS ON SCREEN ---
+                        
+                        // Handle HTML <video>
+                        if (htmlVideo) {
+                            safePlay(htmlVideo);
+                        }
+                        
+                        // Handle YouTube <iframe>
+                        if (ytIframe) {
+                            const playerId = ytIframe.id;
+                            const player = ytPlayers[playerId];
+                            // Check if player is ready
+                            if (player && typeof player.playVideo === 'function') {
+                                player.playVideo();
+                            }
+                        }
+
+                    } else {
+                        // --- ELEMENT IS OFF SCREEN ---
+                        
+                        // Handle HTML <video>
+                        if (htmlVideo) {
+                            safePause(htmlVideo); // safePause already rewinds
+                        }
+
+                        // Handle YouTube <iframe>
+                        if (ytIframe) {
+                            const playerId = ytIframe.id;
+                            const player = ytPlayers[playerId];
+                            // Check if player is ready
+                            if (player && typeof player.pauseVideo === 'function') {
+                                player.pauseVideo();
+                                player.seekTo(0); // Rewind
+                            }
+                        }
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.5 // Play when 50% of the video is visible
+            });
+
+            // 3. Observe all video cards
+            videoCards.forEach(card => {
+                videoObserver.observe(card);
+            });
+
+        });
     </script>
 
 </body>

@@ -123,7 +123,7 @@
             background: #000;
         }
 
-        /* Hides YouTube UI by upscaling the iframe and disabling interaction */
+        /* Hides YouTube UI by upscaling */
         .video-container iframe {
             position: absolute;
             top: 50%;
@@ -153,7 +153,6 @@
             opacity: 1; 
         }
 
-        /* Volume Toggle Style */
         .volume-toggle {
             position: absolute;
             bottom: 12px;
@@ -231,7 +230,7 @@
         }
 
         .portfolio-item.hidden {
-            display: none;
+            display: none !important;
         }
 
         .social-link-card {
@@ -350,11 +349,29 @@
                         <img src="Images/tHUMBNAIL.png" alt="Thumbnail Design" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x450/161b22/22d3ee?text=Design+1'">
                         <div class="portfolio-overlay"></div>
                     </div>
-
+                    
                     <!-- REEL 2 -->
+                    <div class="portfolio-item vertical reveal" data-category="vertical">
+                        <div class="video-container" data-video-id="SsVbDw5nrDo"></div>
+                        <div class="volume-toggle" title="Toggle Sound" data-video-id="zbpXNxc0Z5w">
+                            <svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+                        </div>
+                        <div class="portfolio-overlay"></div>
+                    </div>
+
+                    <!-- REEL 3 -->
                     <div class="portfolio-item vertical reveal" data-category="vertical">
                         <div class="video-container" data-video-id="wnXKfqbPcsY"></div>
                         <div class="volume-toggle" title="Toggle Sound" data-video-id="wnXKfqbPcsY">
+                            <svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+                        </div>
+                        <div class="portfolio-overlay"></div>
+                    </div>
+
+                    <!-- REEL 4 -->
+                    <div class="portfolio-item vertical reveal" data-category="vertical">
+                        <div class="video-container" data-video-id="Lb2DgeON9L0"></div>
+                        <div class="volume-toggle" title="Toggle Sound" data-video-id="zbpXNxc0Z5w">
                             <svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
                         </div>
                         <div class="portfolio-overlay"></div>
@@ -371,8 +388,17 @@
                         <img src="Images/bata.png" alt="Thumbnail Design" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x450/161b22/22d3ee?text=Design+3'">
                         <div class="portfolio-overlay"></div>
                     </div>
-
-                    <!-- REEL 3 -->
+                    <!-- THUMBNAIL 4 -->
+                    <div class="portfolio-item thumbnail reveal" data-category="thumbnail">
+                        <img src="Images/Thumbnail 3.png" alt="Thumbnail Design" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x450/161b22/22d3ee?text=Design+3'">
+                        <div class="portfolio-overlay"></div>
+                    </div>
+                    <!-- THUMBNAIL 5 -->
+                    <div class="portfolio-item thumbnail reveal" data-category="thumbnail">
+                        <img src="Images/hqdefault.avif" alt="Thumbnail Design" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x450/161b22/22d3ee?text=Design+3'">
+                        <div class="portfolio-overlay"></div>
+                    </div>
+                    <!-- REEL 5 -->
                     <div class="portfolio-item vertical reveal" data-category="vertical">
                         <div class="video-container" data-video-id="zbpXNxc0Z5w"></div>
                         <div class="volume-toggle" title="Toggle Sound" data-video-id="zbpXNxc0Z5w">
@@ -425,7 +451,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-white text-base uppercase">Instagram</h4>
-                            <p class="text-[10px] text-gray-500">@synk_studio1</p>
+                            <p class="text-[10px] text-gray-500">@kaushik_kalita</p>
                         </div>
                     </a>
 
@@ -435,7 +461,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-white text-base uppercase">YouTube</h4>
-                            <p class="text-[10px] text-gray-500">I don't have one!</p>
+                            <p class="text-[10px] text-gray-500">KK_provides</p>
                         </div>
                     </a>
                 </div>
@@ -479,7 +505,7 @@
             menu.classList.toggle('flex');
         }
 
-        // --- Portfolio Filter ---
+        // --- FIXED Filtering Logic ---
         function filterPortfolio(category) {
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => {
@@ -492,10 +518,15 @@
             const items = document.querySelectorAll('.portfolio-item');
             items.forEach(item => {
                 item.style.opacity = '0';
+                item.style.transform = 'scale(0.95)';
+                
                 setTimeout(() => {
                     if (category === 'all' || item.getAttribute('data-category') === category) {
                         item.classList.remove('hidden');
-                        setTimeout(() => { item.style.opacity = '1'; }, 50);
+                        setTimeout(() => { 
+                            item.style.opacity = '1'; 
+                            item.style.transform = 'scale(1)';
+                        }, 50);
                     } else {
                         item.classList.add('hidden');
                     }
@@ -507,14 +538,14 @@
             btn.addEventListener('click', () => filterPortfolio(btn.getAttribute('data-filter')));
         });
 
-        // --- YouTube IFrame Management ---
+        // --- YouTube API Stability ---
         let players = {};
 
         function onYouTubeIframeAPIReady() {
             const videoSlots = document.querySelectorAll('.video-container');
             videoSlots.forEach(slot => {
                 const videoId = slot.getAttribute('data-video-id');
-                const playerTargetId = 'player-' + videoId + '-' + Math.random().toString(36).substr(2, 9);
+                const playerTargetId = 'player-' + videoId;
                 const playerDiv = document.createElement('div');
                 playerDiv.id = playerTargetId;
                 slot.appendChild(playerDiv);
@@ -535,27 +566,27 @@
                         'playlist': videoId
                     },
                     events: {
-                        'onReady': onPlayerReady
+                        'onReady': (event) => onPlayerReady(event, videoId)
                     }
                 });
             });
         }
 
-        function onPlayerReady(event) {
+        function onPlayerReady(event, videoId) {
             const iframe = event.target.getIframe();
             const card = iframe.closest('.portfolio-item');
             
-            card.addEventListener('mouseenter', () => { event.target.playVideo(); });
-            card.addEventListener('mouseleave', () => { event.target.pauseVideo(); });
+            card.addEventListener('mouseenter', () => { players[videoId].playVideo(); });
+            card.addEventListener('mouseleave', () => { players[videoId].pauseVideo(); });
         }
 
         document.addEventListener('click', (e) => {
             const muteBtn = e.target.closest('.volume-toggle');
             if (muteBtn) {
                 const videoId = muteBtn.getAttribute('data-video-id');
-                const player = Object.values(players).find(p => p.getVideoData().video_id === videoId);
+                const player = players[videoId];
                 
-                if (player) {
+                if (player && typeof player.isMuted === 'function') {
                     if (player.isMuted()) {
                         player.unMute();
                         muteBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';

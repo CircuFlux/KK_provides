@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaushik — Video Editor & Motion Designer</title>
+    <title>Kaushik — Video Editor</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,8 +21,7 @@
             --bg-card: rgba(22, 27, 34, 0.8);
             --border: rgba(255, 255, 255, 0.1);
             --text-muted: #8b949e;
-            /* Faster transition for snappier feel */
-            --transition: all 0.2s ease-out;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
@@ -85,11 +84,19 @@
         .btn-primary:hover::after { left: 0; }
 
         /* PORTFOLIO GRID STYLES */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 12px;
+        }
+        @media (min-width: 640px) { .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (min-width: 768px) { .portfolio-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
         .portfolio-item {
             background: var(--bg-card);
             backdrop-filter: blur(10px);
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 12px;
             transition: var(--transition);
             display: flex;
             flex-direction: column;
@@ -99,9 +106,9 @@
         }
 
         .portfolio-item:hover {
-            transform: scale(1.03) translateY(-5px) !important; 
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(34, 211, 238, 0.1);
-            border-color: rgba(34, 211, 238, 0.5);
+            transform: scale(1.05) translateY(-10px) !important; 
+            box-shadow: 0 30px 60px rgba(0, 112, 243, 0.25);
+            border-color: rgba(255, 255, 255, 0.6);
             z-index: 10;
         }
 
@@ -116,33 +123,38 @@
             background: #000;
         }
 
-        /* The "Crop" Technique: Hide YouTube UI by upscaling the iframe */
+        /* Hides YouTube UI by upscaling the iframe and disabling interaction */
         .video-container iframe {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 115%; /* Scale up to hide title/logo */
-            height: 115%;
+            width: 150%; 
+            height: 150%;
             transform: translate(-50%, -50%);
             border: none;
-            pointer-events: none; /* Prevents clicking YT buttons */
+            pointer-events: none;
+            user-select: none;
         }
 
         .portfolio-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.25); 
+            background: rgba(0, 0, 0, 0.3); 
             opacity: 0; 
             transition: var(--transition);
             pointer-events: none;
-            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
         }
 
         .portfolio-item:hover .portfolio-overlay { 
             opacity: 1; 
         }
 
-        .mute-toggle {
+        /* Volume Toggle Style */
+        .volume-toggle {
             position: absolute;
             bottom: 12px;
             right: 12px;
@@ -155,16 +167,18 @@
             transition: var(--transition);
             opacity: 0;
             transform: scale(0.8);
+            cursor: pointer;
         }
-        .portfolio-item:hover .mute-toggle {
+        .portfolio-item:hover .volume-toggle {
             opacity: 1;
             transform: scale(1);
         }
-        .mute-toggle:hover {
+        .volume-toggle:hover {
             background: var(--accent);
             color: var(--bg-dark);
             border-color: var(--accent);
         }
+        .volume-toggle svg { width: 16px; height: 16px; fill: currentColor; }
 
         .ghost-text {
             position: absolute;
@@ -188,20 +202,32 @@
             transform: translateY(0);
         }
 
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 8px;
+        }
+
         .filter-btn {
-            padding: 0.6rem 1.2rem;
+            padding: 0.6rem 1.4rem;
             font-family: 'Syne', sans-serif;
             font-weight: 700;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--text-muted);
-            border-bottom: 2px solid transparent;
+            border: 1px solid transparent;
+            border-radius: 99px;
             transition: 0.2s ease;
         }
         .filter-btn.active {
             color: var(--accent);
-            border-bottom-color: var(--accent);
+            background: rgba(34, 211, 238, 0.1);
+            border-color: var(--accent);
         }
 
         .portfolio-item.hidden {
@@ -279,12 +305,12 @@
             </div>
 
             <div class="text-center px-6 z-10 max-w-4xl">
-                <p class="reveal uppercase tracking-[0.3em] text-cyan-400 font-bold text-[10px] mb-4">Mid-Range Video Editor</p>
+                <p class="reveal uppercase tracking-[0.3em] text-cyan-400 font-bold text-[10px] mb-4">Freelance Video Editor</p>
                 <h1 class="reveal text-6xl md:text-8xl font-black tracking-tighter leading-none mb-6 uppercase">
                     KAUSHIK
                 </h1>
                 <p class="reveal text-gray-400 text-base md:text-lg font-light max-w-xl mx-auto leading-relaxed">
-                    Delivering <span class="text-white">clean video edits</span> and <span class="text-white">simple motion design</span>. 3 years of making content look right without the overhype.
+                    Helping creators and brands with <span class="text-white">clean video edits</span> and <span class="text-white">simple motion design</span>. 3 years of making content look right.
                 </p>
                 <div class="reveal mt-10 flex flex-wrap gap-4 justify-center">
                     <a href="#portfolio" class="btn-primary">See My Work</a>
@@ -299,76 +325,61 @@
             <div class="max-w-7xl mx-auto px-6">
                 <div class="reveal mb-12 text-center">
                     <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-4 uppercase">Selected <span class="text-cyan-400">Work</span></h2>
-                    <p class="text-gray-500 mx-auto max-w-md text-sm">Hover to play. Snappy and minimal.</p>
+                    <p class="text-gray-500 mx-auto max-w-md text-sm">Hover to play preview.</p>
+                </div>
+                
+                <div class="portfolio-filters reveal">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="vertical">Vertical</button>
+                    <button class="filter-btn" data-filter="horizontal">Horizontal</button>
+                    <button class="filter-btn" data-filter="thumbnail">Thumbnails</button>
                 </div>
 
-                <!-- FILTER DRAWER -->
-                <div class="reveal flex justify-center border-b border-white/5 mb-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
-                    <button class="filter-btn active" onclick="filterPortfolio('all')">All</button>
-                    <button class="filter-btn" onclick="filterPortfolio('short-form')">Short Form</button>
-                    <button class="filter-btn" onclick="filterPortfolio('video')">Videos</button>
-                    <button class="filter-btn" onclick="filterPortfolio('thumbnail')">Thumbnails</button>
-                </div>
+                <div id="portfolio-grid" class="portfolio-grid">
+                    <!-- REEL 1 -->
+                    <div class="portfolio-item vertical reveal" data-category="vertical">
+                        <div class="video-container" data-video-id="H3j2tUPvcfc"></div>
+                        <div class="volume-toggle" title="Toggle Sound" data-video-id="H3j2tUPvcfc">
+                            <svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+                        </div>
+                        <div class="portfolio-overlay"></div>
+                    </div>
 
-                <!-- GRID: Tighter Gap -->
-                <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    <!-- THUMBNAIL 1 -->
+                    <div class="portfolio-item thumbnail reveal" data-category="thumbnail">
+                        <img src="Images/tHUMBNAIL.png" alt="Thumbnail Design" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x450/161b22/22d3ee?text=Design+1'">
+                        <div class="portfolio-overlay"></div>
+                    </div>
+
+                    <!-- REEL 2 -->
+                    <div class="portfolio-item vertical reveal" data-category="vertical">
+                        <div class="video-container" data-video-id="wnXKfqbPcsY"></div>
+                        <div class="volume-toggle" title="Toggle Sound" data-video-id="wnXKfqbPcsY">
+                            <svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+                        </div>
+                        <div class="portfolio-overlay"></div>
+                    </div>
+
+                    <!-- THUMBNAIL 2 -->
+                    <div class="portfolio-item thumbnail reveal" data-category="thumbnail">
+                        <img src="Images/Thumbnail 2.png" alt="Thumbnail Design" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x450/161b22/22d3ee?text=Design+2'">
+                        <div class="portfolio-overlay"></div>
+                    </div>
                     
-                    <!-- Vertical 1 -->
-                    <div class="portfolio-item vertical reveal" data-category="short-form">
-                        <div class="portfolio-overlay"></div>
-                        <div class="video-container">
-                            <div id="player-i8NE5bzAens" class="w-full h-full"></div>
-                        </div>
-                        <button class="mute-toggle" data-video-id="i8NE5bzAens">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                        </button>
-                    </div>
-
-                    <!-- Vertical 2 -->
-                    <div class="portfolio-item vertical reveal" data-category="short-form">
-                        <div class="portfolio-overlay"></div>
-                        <div class="video-container">
-                            <div id="player-vTiUzXANXx0" class="w-full h-full"></div>
-                        </div>
-                        <button class="mute-toggle" data-video-id="vTiUzXANXx0">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                        </button>
-                    </div>
-
-                    <!-- Horizontal 1 -->
-                    <div class="portfolio-item horizontal reveal" data-category="video">
-                        <div class="portfolio-overlay"></div>
-                        <div class="video-container">
-                            <div id="player-ccH7nXKYWFo" class="w-full h-full"></div>
-                        </div>
-                        <button class="mute-toggle" data-video-id="ccH7nXKYWFo">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                        </button>
-                    </div>
-
-                    <!-- Horizontal 2 -->
-                    <div class="portfolio-item horizontal reveal" data-category="video">
-                        <div class="portfolio-overlay"></div>
-                        <div class="video-container">
-                            <div id="player-nTMYt4urs60" class="w-full h-full"></div>
-                        </div>
-                        <button class="mute-toggle" data-video-id="nTMYt4urs60">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                        </button>
-                    </div>
-
-                    <!-- Thumbnail 1 -->
+                    <!-- THUMBNAIL 3 -->
                     <div class="portfolio-item thumbnail reveal" data-category="thumbnail">
+                        <img src="Images/bata.png" alt="Thumbnail Design" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x450/161b22/22d3ee?text=Design+3'">
                         <div class="portfolio-overlay"></div>
-                        <img src="images/Thumbnail 2.png" alt="Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/640x360/161b22/22d3ee?text=Thumbnail+Sample'">
                     </div>
 
-                    <!-- Thumbnail 2 -->
-                    <div class="portfolio-item thumbnail reveal" data-category="thumbnail">
+                    <!-- REEL 3 -->
+                    <div class="portfolio-item vertical reveal" data-category="vertical">
+                        <div class="video-container" data-video-id="zbpXNxc0Z5w"></div>
+                        <div class="volume-toggle" title="Toggle Sound" data-video-id="zbpXNxc0Z5w">
+                            <svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+                        </div>
                         <div class="portfolio-overlay"></div>
-                        <img src="images/tHUMBNAIL.png" alt="Thumbnail" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/640x360/161b22/22d3ee?text=Thumbnail+Sample'">
                     </div>
-
                 </div>
             </div>
         </section>
@@ -378,14 +389,12 @@
             <span class="ghost-text bottom-10 right-10 uppercase">About</span>
             <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
                 <div class="reveal">
-                    <h2 class="text-5xl font-black mb-8 leading-none uppercase">The <br><span class="text-cyan-400">Editor</span></h2>
-                    <p class="text-gray-400 mb-6">I'm Kaushik, a freelance video editor with 3 years of hands-on experience. I specialize in making content that is easy to watch and stays on point.</p>
+                    <h2 class="text-5xl font-black mb-8 leading-none uppercase">About <br><span class="text-cyan-400">Me</span></h2>
+                    <p class="text-gray-400 mb-6">I'm Kaushik, a freelance video editor specializing in short-form content. I focus on clean pacing and clear messaging to help creators reach their audience effectively.</p>
                     <div class="flex flex-wrap gap-2 mb-8">
                         <span class="skill-tag">Premiere Pro</span>
                         <span class="skill-tag">After Effects</span>
                         <span class="skill-tag">Photoshop</span>
-                        <span class="skill-tag">CapCut</span>
-                        <span class="skill-tag">Color Grading</span>
                     </div>
                 </div>
                 <div class="reveal grid grid-cols-1 gap-4">
@@ -406,7 +415,7 @@
             <div class="max-w-7xl mx-auto px-6">
                 <div class="reveal mb-12 text-center md:text-left">
                     <h2 class="text-4xl font-black tracking-tight mb-4 uppercase">Let's <span class="text-cyan-400">Connect</span></h2>
-                    <p class="text-gray-500 max-w-md text-sm">Stay updated with my latest edits and BTS on social media.</p>
+                    <p class="text-gray-500 max-w-md text-sm">Stay updated with my latest projects on social media.</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
@@ -416,7 +425,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-white text-base uppercase">Instagram</h4>
-                            <p class="text-[10px] text-gray-500">@your_handle</p>
+                            <p class="text-[10px] text-gray-500">@synk_studio1</p>
                         </div>
                     </a>
 
@@ -426,7 +435,7 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-white text-base uppercase">YouTube</h4>
-                            <p class="text-[10px] text-gray-500">KK_provides</p>
+                            <p class="text-[10px] text-gray-500">I don't have one!</p>
                         </div>
                     </a>
                 </div>
@@ -455,7 +464,7 @@
 
     <footer class="py-8 text-center border-t border-white/5">
         <p class="text-gray-600 text-[10px] uppercase tracking-widest">
-            &copy; <span id="year"></span> KK_provides — Mid-Range Freelance Editor
+            &copy; <span id="year"></span> KK_provides — Friendly Video Editor!
         </p>
     </footer>
 
@@ -467,14 +476,15 @@
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
-            menu.classList.toggle('open');
+            menu.classList.toggle('flex');
         }
 
+        // --- Portfolio Filter ---
         function filterPortfolio(category) {
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => {
                 btn.classList.remove('active');
-                if (btn.innerText.toLowerCase().includes(category.replace('-', ' ')) || (category === 'all' && btn.innerText === 'All')) {
+                if (btn.getAttribute('data-filter') === category) {
                     btn.classList.add('active');
                 }
             });
@@ -493,13 +503,23 @@
             });
         }
 
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => filterPortfolio(btn.getAttribute('data-filter')));
+        });
+
+        // --- YouTube IFrame Management ---
         let players = {};
 
         function onYouTubeIframeAPIReady() {
-            const videoSlots = document.querySelectorAll('.video-container [id^="player-"]');
+            const videoSlots = document.querySelectorAll('.video-container');
             videoSlots.forEach(slot => {
-                const videoId = slot.id.replace('player-', '');
-                players[videoId] = new YT.Player(slot.id, {
+                const videoId = slot.getAttribute('data-video-id');
+                const playerTargetId = 'player-' + videoId + '-' + Math.random().toString(36).substr(2, 9);
+                const playerDiv = document.createElement('div');
+                playerDiv.id = playerTargetId;
+                slot.appendChild(playerDiv);
+
+                players[videoId] = new YT.Player(playerTargetId, {
                     videoId: videoId,
                     playerVars: {
                         'autoplay': 0,
@@ -511,6 +531,7 @@
                         'iv_load_policy': 3,
                         'loop': 1,
                         'disablekb': 1,
+                        'fs': 0,
                         'playlist': videoId
                     },
                     events: {
@@ -524,29 +545,25 @@
             const iframe = event.target.getIframe();
             const card = iframe.closest('.portfolio-item');
             
-            card.addEventListener('mouseenter', () => {
-                event.target.playVideo();
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                event.target.pauseVideo();
-            });
+            card.addEventListener('mouseenter', () => { event.target.playVideo(); });
+            card.addEventListener('mouseleave', () => { event.target.pauseVideo(); });
         }
 
         document.addEventListener('click', (e) => {
-            const muteBtn = e.target.closest('.mute-toggle');
+            const muteBtn = e.target.closest('.volume-toggle');
             if (muteBtn) {
                 const videoId = muteBtn.getAttribute('data-video-id');
-                const player = players[videoId];
+                const player = Object.values(players).find(p => p.getVideoData().video_id === videoId);
+                
                 if (player) {
                     if (player.isMuted()) {
                         player.unMute();
-                        muteBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
-                        muteBtn.classList.add('text-cyan-400');
+                        muteBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
+                        muteBtn.style.color = 'var(--accent)';
                     } else {
                         player.mute();
-                        muteBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
-                        muteBtn.classList.remove('text-cyan-400');
+                        muteBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>';
+                        muteBtn.style.color = 'white';
                     }
                 }
             }
